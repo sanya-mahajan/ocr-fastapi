@@ -20,3 +20,11 @@ uvicorn app.main:app --reload
 ![Screenshot from 2023-04-02 11-13-32](https://user-images.githubusercontent.com/88281057/229334062-b0e44838-cb79-4051-a3e5-7844dd0cca49.png)
 
 https://ms-ocr-fastapi.azurewebsites.net/
+
+
+--add docker
+    --make entrypoint.sh and change gunicorn path (faster than virtualenv)
+    --declare runport and bind
+    --apt-get python and packages
+    --prune files after running to reduce image size
+

@@ -3,7 +3,7 @@
 --fastapi + jinja templates
 
 
-uvicorn app.main:app --reload
+uvicorn app.main:app --reload           (uvi+guni allows async)
 
 --HTMLresponse class
 --Response class
@@ -22,9 +22,25 @@ uvicorn app.main:app --reload
 https://ms-ocr-fastapi.azurewebsites.net/
 
 
---add docker
+--add docker (main2)
     --make entrypoint.sh and change gunicorn path (faster than virtualenv)
     --declare runport and bind
     --apt-get python and packages
     --prune files after running to reduce image size
+    -- push image to dockerhub
 
+--add debug/.env to main , use BseSettings and lru_cache decorator
+-- create dependency on settings in view
+--  File and UploadFile class
+-- define async function for upload (input bytestr using io)
+-- add upload route and use uuid to generate unique filepath
+-- add settings dependency in echofile view as well so that it gets value for ECHO_ON
+-- add automated test for images
+
+.Headers({'content-type': 'image/png', 'content-length': '61876', 'last-modified': 'Mon, 03 Apr 2023 16:14:42 GMT', 'etag': '5837c4e11ce616aadec140e04b9621a5'})
+
+-- implement pillow for validating image (convert bytestr to img)
+-- save image to destination path
+-- use imagechops to compare uploaded img vs echo img
+
+-- install pytesseract and make ocr file
